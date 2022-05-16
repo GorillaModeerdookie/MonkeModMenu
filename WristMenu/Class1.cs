@@ -28,7 +28,7 @@ namespace WristMenu
     [HarmonyPatch("Update", MethodType.Normal)]
     class MenuPatch
     {
-        static string[] buttons = new string[] {"Toggle Super Monke", "Toggle Tag Gun", "Toggle Speed Boost", "Tag All", "Turn Off Tag Freeze", "Toggle Beacon"};
+        static string[] buttons = new string[] {"Superman", "Zappy", "Bean Speed boost", "Eliminate All", "Turn Off Tag Freeze", "Toggle Beacon"};
         static bool?[] buttonsActive = new bool?[] {false, false, false, false, false, false};
         static bool gripDown;
         static GameObject menu = null;
@@ -97,7 +97,7 @@ namespace WristMenu
 
                             if (primaryDown)
                             {
-                                __instance.transform.position += (__instance.headCollider.transform.forward * Time.deltaTime) * 12f;
+                                __instance.transform.position += (__instance.headCollider.transform.forward * Time.deltaTime) * 20f;
                                 __instance.GetComponent<Rigidbody>().velocity = Vector3.zero;
                                 if (!flying)
                                 {
@@ -106,7 +106,7 @@ namespace WristMenu
                             }
                             else if (flying)
                             {
-                                __instance.GetComponent<Rigidbody>().velocity = (__instance.headCollider.transform.forward * Time.deltaTime) * 12f;
+                                __instance.GetComponent<Rigidbody>().velocity = (__instance.headCollider.transform.forward * Time.deltaTime) * 20f;
                                 flying = false;
                             }
 
@@ -339,7 +339,7 @@ namespace WristMenu
             titleObj.transform.parent = canvasObj.transform;
             Text title = titleObj.AddComponent<Text>();
             title.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
-            title.text = "Monke Mod Menu";
+            title.text = "Bean's Menu";
             title.fontSize = 1;
             title.alignment = TextAnchor.MiddleCenter;
             title.resizeTextForBestFit = true;
